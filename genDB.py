@@ -8,10 +8,10 @@ import csv
 #Twitter API credentials
 try:
 	secretKeys = open("secretKeys.txt").read().split('\n')
-	consumer_key = secretKeys[0]
-	consumer_secret = secretKeys[1]
-	access_key = secretKeys[2]
-	access_secret = secretKeys[3]
+	consumer_key = secretKeys[0].strip()
+	consumer_secret = secretKeys[1].strip()
+	access_key = secretKeys[2].strip()
+	access_secret = secretKeys[3].strip()
 except:
 	consumer_key = raw_input("Consumer key: ")
 	consumer_secret = raw_input("Consumer secret: ")
@@ -56,7 +56,6 @@ def get_all_tweets(screen_name):
 
 	#transform the tweepy tweets into a 2D array that will populate the csv
 	outtweets = [[tweet.id_str, tweet.created_at, tweet.text.encode("utf-8")] for tweet in alltweets]
-
 	#write the csv
 	with open('%s_tweets.csv' % screen_name, 'wb') as f:
 		writer = csv.writer(f)
