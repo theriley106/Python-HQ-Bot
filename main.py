@@ -54,5 +54,8 @@ def randomBounds(coords, lr):
 	else:
 		return (EndXBound, StartYBound, StartXBound, EndYBound)
 
+def genGoogleSearch(keywords):
+	return "https://www.google.com/search?q=%27{}".format(keywords.replace(" ", "+"))
+
 if __name__ == "__main__":
 	pass
