@@ -1,9 +1,10 @@
 # Python-HQ-Bot
 ### Using statistics to beat HQ: The Live Trivia Game Show.
 
-<center><h3><a href='https://www.kaggle.com/theriley106/hq-trivia-question-database'>Question DB hosted on Kaggle</a></h3></center>
+<p align="center"><h3><a href='https://www.kaggle.com/theriley106/hq-trivia-question-database'>Question DB hosted on Kaggle</a></h3></p>
 
 <p align="center">
+
   <img src="src/setup.jpg" width="350"/>
 </p>
 
