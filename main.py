@@ -4,7 +4,6 @@ import random
 import PIL
 from PIL import Image
 import re
-import face_recognition
 
 def sendSystemCommand(command):
 	os.system('{} > tmp'.format(command))
@@ -44,13 +43,13 @@ def crop(coords, filename):
 	im.save(filename)
 	return filename
 
-def randomBounds(coords, like):
+def randomBounds(coords, lr):
 	coords = tuple([float(i) for i in coords])
 	StartYBound = str(random.randint(coords[1], coords[3]))
 	StartXBound = str(float(random.randint(coords[0], coords[2])) / 5)
 	EndXBound = str(coords[2] - int((float(random.randint(coords[0], coords[2])) / 5)))
 	EndYBound = str(random.randint(coords[1], coords[3]))
-	if like == True:
+	if lr == True:
 		return (StartXBound, StartYBound, EndXBound, EndYBound)
 	else:
 		return (EndXBound, StartYBound, StartXBound, EndYBound)
