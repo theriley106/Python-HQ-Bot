@@ -4,7 +4,7 @@
 
 <h3><a href='https://www.kaggle.com/theriley106/hq-trivia-question-database'>Question DB hosted on Kaggle</a></h3>
 
-<p align="center">
+<p>
  <img src="src/setup.jpg" width="350"/>
 </p>
 
