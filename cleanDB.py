@@ -3,6 +3,7 @@
 import csv
 import json
 import re
+import datetime
 
 letters = ["A", "B", "C", "D"]
 
@@ -11,11 +12,23 @@ def readCSV(csvFile):
 	with open(csvFile, 'r') as f:
 		reader = csv.reader(f)
 		return list(reader)
-listOfAnswers = readCSV('HQTriviaScribe_tweets.csv')[1:]
 
-for val in listOfAnswers:
+def convertToDateTime(timestamp):
+	return datetime.datetime.strptime(timestamp, '%Y-%m-%d %H:%M:%S')
+listOfAnswers = readCSV('databaseArchive/HQTriviaScribe_tweets.csv')[1:][::-1]
+# Reverse list
+questionNum = 0
+for e, val in enumerate(listOfAnswers):
 	tempDict = {}
-	tempDict["timestamp"] = val[0]
+	tempDict["timestamp"] = val[1]
+	try:
+		if (convertToDateTime(val[1]) - convertToDateTime(listOfAnswers[e-1][1])).total_seconds() < (60 * 120):
+			questionNum += 1
+		else:
+			questionNum = 1
+	except Exception as exp:
+		print exp
+	tempDict["question_num"] = questionNum
 	tempVals = val[2].split("\n")
 	tempDict["question"] = tempVals[0]
 	tempDict["answers"] = []
@@ -30,5 +43,5 @@ for val in listOfAnswers:
 		tempDict["answers"].append(nestDict)
 	DATABASE.append(tempDict)
 
-with open('DB.json', 'w') as fp:
+with open('DBase.json', 'w') as fp:
 	json.dump(DATABASE, fp)
