@@ -1,11 +1,10 @@
 # Python-HQ-Bot
-A Python-Based bot for HQ, The Live Trivia Game Show.
+Using statistics to beat HQ: The Live Trivia Game Show.
 
+### [Question DB hosted on Kaggle](https://www.kaggle.com/theriley106/hq-trivia-question-database)
 <p align="center">
   <img src="src/setup.jpg" width="350"/>
 </p>
-
-### [Question DB hosted on Kaggle](https://www.kaggle.com/theriley106/hq-trivia-question-database)
 
 ### Analysis
 
@@ -15,13 +14,13 @@ Considering the first 3 questions are *generally* extremely easy, that would bri
 
 ## Ideal Scenario
 
-**8 Answers Correct**
+**7 Answers Correct**
 
-**49 Players**
+**70 Players**
 
-Gives the probability of 49/81, or a **60.4938272%** chance of winning.
+Gives the probability of 70/243, or a **28.8065844%** chance of winning.
 
-Look for the ability to *eliminate* answers rather than find them...
+**Look for the ability to *eliminate* answers rather than find them...**
 
 
 ### Relevant links
