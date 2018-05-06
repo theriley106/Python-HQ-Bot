@@ -9,9 +9,9 @@ letters = ["A", "B", "C", "D"]
 DATABASE = []
 def readCSV(csvFile):
 	with open(csvFile, 'r') as f:
- 		reader = csv.reader(f)
+		reader = csv.reader(f)
 		return list(reader)
-listOfAnswers = readCSV('HQTriviaScribe_tweets.csv')
+listOfAnswers = readCSV('HQTriviaScribe_tweets.csv')[1:]
 
 for val in listOfAnswers:
 	tempDict = {}
@@ -29,4 +29,6 @@ for val in listOfAnswers:
 		nestDict["text"] = val.replace(" ✓", "").partition(") ")[2]
 		tempDict["answers"].append(nestDict)
 	DATABASE.append(tempDict)
-print DATABASE
+
+with open('DB.json', 'w') as fp:
+	json.dump(DATABASE, fp)
